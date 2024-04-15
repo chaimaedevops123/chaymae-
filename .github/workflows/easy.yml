@@ -1,29 +1,26 @@
 name: shell commands  
 on: [push] 
-
 jobs: 
-
   run-shell-commands: 
-
     runs-on: ubuntu-latest 
-
     steps: 
-
       - name: string 
-
         run: echo "welcom to devopshint"   
-
       - name: multiline script 
-
         run: | 
-
           node -v 
-
-          npm -v 
-          
+          npm -v     
       - name: python command  
-
         run: | 
-
-          python -c 'import platform; print(platform.processor())' 
+          import platform 
+          print(platform.processor())' 
+        shell : python 
+  run-windows-commands :
+    runs-on: windows-latest
+    steps : 
+      -name: Directort powershell
+        run: Get-location  
+      -name : Directort bash 
+        run: pwd 
+        shell : bash 
 
