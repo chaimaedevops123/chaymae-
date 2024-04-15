@@ -1,8 +1,6 @@
 name: shell commands
-on:
-  push:
-    branches:
-      - main
+on: [push]
+   
 jobs:
   run-shell-commands:
     runs-on: ubuntu-latest
@@ -17,12 +15,12 @@ jobs:
         run: |
           import platform
           print(platform.processor())
-    shell: python
-  run-windows-commands:
+        shell: python
+  run-windows-command:
     runs-on: windows-latest
     steps:
       - name: Directory powershell
         run: Get-location
       - name: Directory bash
         run: pwd
-    shell: bash
+        shell: bash
